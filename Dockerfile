@@ -1,9 +1,9 @@
-FROM stackbrew/ubuntu:14.04
+FROM ubuntu:14.04
 MAINTAINER Arcus "http://arcus.io"
-RUN echo "deb http://ppa.launchpad.net/rethinkdb/ppa/ubuntu trusty main" > /etc/apt/sources.list.d/rethinkdb.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 11D62AD6
-RUN apt-get update
 ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt-get install -y wget && echo "deb http://download.rethinkdb.com/apt trusty main" > /etc/apt/sources.list.d/rethinkdb.list \
+    && wget -qO- http://download.rethinkdb.com/apt/pubkey.gpg | sudo apt-key add -
+RUN apt-get update
 RUN apt-get install -y rethinkdb
 EXPOSE 8080
 EXPOSE 28015

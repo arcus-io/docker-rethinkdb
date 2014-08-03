@@ -1,6 +1,6 @@
 # RethinkDB
 
-RethinkDB 1.12.5
+RethinkDB 1.13.3
 
 Uses `rethinkdb` as the entrypoint with default options of `--bind all`
 
